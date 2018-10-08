@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+#chat-messages {
+    min-height: 10vh;
+    height: 60vh;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.to-right {
+    text-align: right;
+}
+
+.to-left {
+    text-align: left;
+}
+
+.text-message {
+    width: auto !important;
+    max-width: 50%;
+    height: auto !important;
+    text-align: left;
+    word-break: break-all;
+}
+
+.my-message {
+    float: right !important;
+    background-color: lightblue !important;
+}
+
+.margin-bottom-zero {
+    margin-bottom: 0 !important;
+}
+
+.my-time-message {
+    float: right !important;
+}
