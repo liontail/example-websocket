@@ -19,6 +19,7 @@ var broadcast = make(chan models.Message)    // broadcast channel
 // Configure the upgrader
 var upgrader = websocket.Upgrader{}
 
+// HandleConnections handle newly connection
 func HandleConnections(w http.ResponseWriter, r *http.Request) {
 	// Upgrade initial GET request to a websocket
 	ws, err := upgrader.Upgrade(w, r, nil)
@@ -56,6 +57,7 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// HandleMessages handle newly received message
 func HandleMessages() {
 	for {
 		// Grab the next message from the broadcast channel
@@ -87,9 +89,12 @@ func readHistory() []models.Message {
 		log.Println(err)
 		return nil
 	}
+
+	newStr := "[" + string(byteValue) + "]" // make history to array
+
 	messages := []models.Message{}
 	//bind all history messages
-	if err := json.Unmarshal(byteValue, &messages); err != nil {
+	if err := json.Unmarshal([]byte(newStr), &messages); err != nil {
 		log.Println(err)
 		return nil
 	}
@@ -109,15 +114,11 @@ func writeHistory(msg models.Message) {
 	wAt := fileStat.Size()  // get lenght of byte in the file
 	newData := string(dataJSON)
 	if wAt > 0 {
-		wAt--                     // replace last index should be ] with newData
 		newData = ",\n" + newData // if there is a record append , and new line to it
-	} else {
-		newData = "[" + newData // create array in the file
 	}
-	newData = newData + "]" // close array in the file
 
 	// write at the last index of the file
-	if _, err := f.WriteAt([]byte(newData), wAt); err != nil {
+	if _, err := f.Write([]byte(newData)); err != nil {
 		panic(err)
 	}
 }

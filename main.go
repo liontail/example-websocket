@@ -10,14 +10,14 @@ import (
 
 func main() {
 
-	// Capture Interrupt ^C signal
+	// Capture Interrupt ^C signal for remove history
 	exit := make(chan os.Signal, 1)
 	signal.Notify(exit, os.Interrupt)
-
 	go func() {
 		select {
 		// sig is a ^C, handle it
 		case <-exit:
+			// On exit process remove file history
 			os.Remove("./history.json")
 			os.Exit(1)
 		}

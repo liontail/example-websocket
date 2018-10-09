@@ -57,7 +57,7 @@ new Vue({
                         self.username = username
                         self.$cookies.set('username', username);
                         self.joined = true;
-                    } else if (xhr.responseText == 'Duplicate') {
+                    } else if (xhr.responseText == 'duplicate') {
                         Materialize.toast('Username already have been chosen', 4000);
                         self.joined = false;
                         return

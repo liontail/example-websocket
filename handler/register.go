@@ -25,7 +25,7 @@ func Join(w http.ResponseWriter, r *http.Request) {
 	}
 	// check if user can join (already exist username)
 	if !canJoin(user.Username) {
-		w.Write([]byte("Duplicate"))
+		w.Write([]byte("duplicate"))
 		return
 	}
 	// set the username to make it exist
