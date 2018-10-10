@@ -75,23 +75,23 @@ new Vue({
             let div = document.createElement('div');
             let content = '';
             if (msg.username == username) {
-                content += '<div class="row to-right margin-bottom-zero"> <div class="col s6 offset-s6">'
+                content += '<div class="row to-right margin-bottom-zero"> <div class="col s10 offset-s2">'
             } else {
-                content += '<div class="row to-left margin-bottom-zero"> <div class="col s6">'
+                content += '<div class="row to-left margin-bottom-zero"> <div class="col s10">'
             }
             content += '<div class="col s12">' + msg.username + '</div>'
             if (msg.username == username) {
-                content += '<div class="col s10 chip text-message my-message">'
+                content += '<div class="col s8 chip text-message my-message">'
             } else {
-                content += '<div class="col s10 chip text-message">'
+                content += '<div class="col s8 chip text-message">'
             }
 
             content += emojione.toImage(msg.message) + '</div>'; // Parse emojis
-
+            let time = msg.updated_at.split(",")
             if (msg.username == username) {
-                content += '<div class="col s2 text-message my-time-message">' + msg.updated_at + '</div>'
+                content += '<div class="col s4 text-message my-time-message">' + time[0] + '<br/> ' + time[1] + ' </div>'
             } else {
-                content += '<div class="col s2 text-message time-message">' + msg.updated_at + '</div>'
+                content += '<div class="col s4 text-message time-message">' + time[0] + '<br/> ' + time[1] + '</div>'
             }
             content += '</div> </div>'
             div.innerHTML = content

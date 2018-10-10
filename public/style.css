@@ -13,6 +13,7 @@ main {
     height: 60vh;
     width: 100%;
     overflow-y: scroll;
+    padding: 0 !important;
 }
 
 .to-right {
@@ -25,8 +26,8 @@ main {
 
 .text-message {
     width: auto !important;
-    max-width: 50%;
     height: auto !important;
+    max-width: 80%;
     text-align: left;
     word-break: break-all;
 }
@@ -40,6 +41,11 @@ main {
     margin-bottom: 0 !important;
 }
 
+.time-message {
+    font-size: 0.5em;
+}
+
 .my-time-message {
     float: right !important;
+    font-size: 0.5em;
 }

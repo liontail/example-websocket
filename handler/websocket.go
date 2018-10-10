@@ -49,7 +49,7 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 			delete(clients, ws)
 			break
 		}
-		msg.UpdatedAt = time.Now().Format("02 Jan 2006 15:04:05")
+		msg.UpdatedAt = time.Now().Format("02/01/06,15:04")
 		writeHistory(msg)
 
 		// Send the newly received message to the broadcast channel
