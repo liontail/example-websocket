@@ -5,7 +5,8 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
-	"ws-socket/handler"
+
+	"github.com/liontail/example-websocket/handler"
 )
 
 func main() {

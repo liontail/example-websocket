@@ -8,9 +8,9 @@ import (
 	"os"
 	"strings"
 	"time"
-	"ws-socket/models"
 
 	"github.com/gorilla/websocket"
+	"github.com/liontail/example-websocket/models"
 )
 
 var clients = make(map[*websocket.Conn]bool) // connected clients

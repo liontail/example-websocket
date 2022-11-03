@@ -3,7 +3,8 @@ package handler
 import (
 	"encoding/json"
 	"net/http"
-	"ws-socket/models"
+
+	"github.com/liontail/example-websocket/models"
 )
 
 // User represents Temporary User on Joining
